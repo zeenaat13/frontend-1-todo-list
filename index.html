@@ -11,27 +11,29 @@
 </head>
 <body>
     <div class="wrapper">
-      <div class="task-input">
-       
-        <input type="text" placeholder="Add a new task">
-       
-        <button type="button" id="push" class="btn-primary" onclick="add()">Add</button>
 
+      <div class="task-input">
+        <input type="text" placeholder="Add a new task">
+        <button type="button" id="push" class="btn-primary" onclick="add()">Add</button>
       </div>
-      <p>NOTE:- Press Enter or ADD button to enter the text</p>
+
+      <p id="note">NOTE:- Press Enter or ADD button to enter the text</p>
+
       <div class="controls">
         <div class="filters">
           <span class="active" id="all">All</span>
           <span id="pending">Pending</span>
           <span id="completed">Completed</span>
-        </div cla>
+        </div >
         <button class="clear-btn">Clear All</button>
       </div>
+      
       <ul class="task-box"></ul>
+
       <hr>
+
       <div class="footer">
         <span>You have <span class="pendingTasks"></span>  tasks</span>
-        
       </div>
     </div>
    

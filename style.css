@@ -257,4 +257,10 @@ body{
     justify-content: space-between;
   }
 
+  #note{
+    font-size: x-small;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif ;
+  }
+
   

@@ -4,6 +4,7 @@ clearAll = document.querySelector(".clear-btn"),
 taskBox = document.querySelector(".task-box");
 addBtn = document.querySelector("#push");
 
+
 let editId,
 isEditTask = false,
 todos = JSON.parse(localStorage.getItem("todo-list"));
@@ -18,7 +19,7 @@ filters.forEach(btn => {
 
 function showTodo(filter) {
     const pendingTasksNumb = document.querySelector(".pendingTasks");
-        pendingTasksNumb.textContent = todos.length; 
+        pendingTasksNumb.textContent = todos.length-c; 
 
     let liTag = "";
     if(todos) {
@@ -62,6 +63,7 @@ function updateStatus(selectedTask) {
     let taskName = selectedTask.parentElement.lastElementChild;
     if(selectedTask.checked) {
         taskName.classList.add("checked");
+        
         todos[selectedTask.id].status = "completed";
     } else {
         taskName.classList.remove("checked");
