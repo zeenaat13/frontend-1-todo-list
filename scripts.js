@@ -2,14 +2,12 @@ const taskInput = document.querySelector(".task-input input"),
 filters = document.querySelectorAll(".filters span"),
 clearAll = document.querySelector(".clear-btn"),
 taskBox = document.querySelector(".task-box");
-//const addBtn = document.querySelector(".task-input button");
-const addBtn = document.querySelector("#addBtn");
-
-
+addBtn = document.querySelector("#push");
 
 let editId,
 isEditTask = false,
 todos = JSON.parse(localStorage.getItem("todo-list"));
+
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelector("span.active").classList.remove("active");
@@ -17,9 +15,6 @@ filters.forEach(btn => {
         showTodo(btn.id);
     });
 });
-
-
-
 
 function showTodo(filter) {
     const pendingTasksNumb = document.querySelector(".pendingTasks");
@@ -97,11 +92,7 @@ clearAll.addEventListener("click", () => {
     showTodo()
 });
 
-//taskInput.addEventListener("keyup", e => {
-
-
-    taskInput.addEventListener("keyup", e => {
-
+taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
     if(e.key == "Enter" && userTask) {
         if(!isEditTask) {
@@ -119,10 +110,10 @@ clearAll.addEventListener("click", () => {
 });
 
 
-addBtn.addEventListener("click", () => {
-
-    let userTask = taskInput.value.trim();
-   // if(e.key == "Enter" && userTask) {
+ //addBtn.addEventListener("click",
+    function add(){
+    let userTask = taskInput.value.trim() ;
+    
         if(!isEditTask) {
             todos = !todos ? [] : todos;
             let taskInfo = {name: userTask, status: "pending"};
@@ -134,5 +125,6 @@ addBtn.addEventListener("click", () => {
         taskInput.value = "";
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
-  //  }
-});
+    }
+
+
